@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.arcad.rental.ui.category"
+            name="Rental">
+      </category>
+      <view
+            category="com.arcad.rental.ui.category"
+            class="com.arcad.rental.ui.views.RentalPropertyView"
+            id="com.arcad.rental.ui.view.propertyRental"
+            name="Rental Property view"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
