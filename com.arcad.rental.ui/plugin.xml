@@ -14,6 +14,13 @@
             name="Rental Property view"
             restorable="true">
       </view>
+      <view
+            category="com.arcad.rental.ui.category"
+            class="com.arcad.rental.ui.views.AgencyView"
+            id="com.arcad.rental.ui.AngecyTreeView"
+            name="Angencys"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>
