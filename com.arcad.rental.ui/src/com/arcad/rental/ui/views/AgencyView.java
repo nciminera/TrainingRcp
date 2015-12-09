@@ -10,8 +10,9 @@ import org.eclipse.ui.part.ViewPart;
 import com.arcad.rental.core.RentalCoreActivator;
 import com.opcoach.training.rental.RentalAgency;
 
-public class AgencyView extends ViewPart {
-
+public class AgencyView extends ViewPart {	
+	
+	
 	public AgencyView() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,6 +27,8 @@ public class AgencyView extends ViewPart {
 		Collection<RentalAgency> agency = new ArrayList<RentalAgency>();
 		agency.add(RentalCoreActivator.getAgency());
 		tv.setInput(agency);
+		tv.expandAll();
+		getSite().setSelectionProvider(tv);
 	}
 
 	@Override
@@ -33,5 +36,6 @@ public class AgencyView extends ViewPart {
 		// TODO Auto-generated method stub
 
 	}
+	
 
 }

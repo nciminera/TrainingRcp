@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ui
 Bundle-SymbolicName: com.arcad.rental.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.arcad.rental.ui.Activator
+Bundle-Activator: com.arcad.rental.ui.RentalUIActivator
 Bundle-Vendor: ARCAD
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

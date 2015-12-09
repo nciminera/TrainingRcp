@@ -2,16 +2,23 @@ package com.arcad.rental.ui.views;
 
 import java.util.Collection;
 
+
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
+import com.arcad.rental.ui.RentalUIActivator;
 import com.arcad.rental.ui.RentalUIConstant;
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
 
-public class RentalProvider extends LabelProvider implements ITreeContentProvider, RentalUIConstant {
+public class RentalProvider extends LabelProvider implements ITreeContentProvider, RentalUIConstant, IColorProvider {
 
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
@@ -63,6 +70,18 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		return super.getText(element);
 	}
 
+	@Override
+	public Image getImage(Object element) {
+		if (element instanceof RentalAgency) {
+			return RentalUIActivator.getDefault().getImageRegistry().get(IMG_AGENCY);
+		}else if (element instanceof Customer) {
+			return RentalUIActivator.getDefault().getImageRegistry().get(IMG_CUSTOMER);
+		}else if (element instanceof RentalObject) {
+			return RentalUIActivator.getDefault().getImageRegistry().get(IMG_OBJECT);
+		}
+		return super.getImage(element);
+	}
+	
 	class Node {
 
 		private String title;
@@ -84,11 +103,32 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 				return a.getCustomers().toArray();
 			}else if (title == NODE_RENTAL_OBJECT)
 				return a.getObjectsToRent().toArray();
-			else if (title == NODE_RENTAL) {
+			else if (title == NODE_RENTAL) {	
 				return a.getRentals().toArray();
 			}
 			return null;
 		}
 
+	}
+
+	@Override
+	public Color getForeground(Object element) {
+		Display d = Display.getCurrent();
+		if (element instanceof RentalAgency) {
+			return d.getSystemColor(SWT.COLOR_BLUE);
+		}else if (element instanceof Customer) {
+			return d.getSystemColor(SWT.COLOR_RED);
+		}else if (element instanceof RentalObject) {
+			return d.getSystemColor(SWT.COLOR_GREEN);
+		}else if (element instanceof Node) {
+			return d.getSystemColor(SWT.COLOR_DARK_MAGENTA);
+		}
+		return null;
+	}
+
+	@Override
+	public Color getBackground(Object element) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
