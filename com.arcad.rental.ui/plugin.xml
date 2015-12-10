@@ -44,5 +44,52 @@
             class="com.arcad.rental.ui.pref.AbstractPreferenceInitializerRental">
       </initializer>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.arcad.rental.ui.commandHelloWrd"
+            name="HelloWrd">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.arcad.rental.ui.handelers.SampleHandler"
+            commandId="com.arcad.rental.ui.commandHelloWrd">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="test">
+            <command
+                  commandId="com.arcad.rental.ui.commandHelloWrd"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.views.ResourceNavigator?after=additions">
+         <command
+               commandId="com.arcad.rental.ui.commandHelloWrd"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.arcad.rental.ui.AngecyTreeView?after=additions">
+         <command
+               commandId="com.arcad.rental.ui.commandHelloWrd"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>
