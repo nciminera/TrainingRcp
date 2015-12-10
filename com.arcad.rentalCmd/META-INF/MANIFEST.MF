@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RentalCmd
+Bundle-SymbolicName: com.arcad.rentalCmd;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.arcad.rentalcmd.Activator
+Bundle-Vendor: ARCAD
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.arcad.rental.core;bundle-version="1.0.0",
+ com.arcad.rental.ui;bundle-version="1.0.0",
+ org.eclipse.core.expressions
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
