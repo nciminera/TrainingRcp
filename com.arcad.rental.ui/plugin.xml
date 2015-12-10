@@ -5,20 +5,20 @@
          point="org.eclipse.ui.views">
       <category
             id="com.arcad.rental.ui.category"
-            name="Rental">
+            name="%category.name">
       </category>
       <view
             category="com.arcad.rental.ui.category"
             class="com.arcad.rental.ui.views.RentalPropertyView"
             id="com.arcad.rental.ui.view.propertyRental"
-            name="Rental Property view"
+            name="%view.name"
             restorable="true">
       </view>
       <view
             category="com.arcad.rental.ui.category"
             class="com.arcad.rental.ui.views.AgencyView"
             id="com.arcad.rental.ui.AngecyTreeView"
-            name="Angencys"
+            name="%view.name.0"
             restorable="true">
       </view>
    </extension>
@@ -27,7 +27,7 @@
       <perspective
             class="com.arcad.rental.ui.perspectives.Rentalperspective"
             id="com.arcad.rental.ui.perspective1"
-            name="Rental">
+            name="%perspective.name">
       </perspective>
    </extension>
    <extension
@@ -35,7 +35,7 @@
       <page
             class="com.arcad.rental.ui.pref.PrefColor"
             id="com.arcad.rental.ui.prefpage"
-            name="Colors">
+            name="%page.name">
       </page>
    </extension>
    <extension
@@ -48,7 +48,7 @@
          point="org.eclipse.ui.commands">
       <command
             id="com.arcad.rental.ui.commandHelloWrd"
-            name="HelloWrd">
+            name="%command.name">
       </command>
    </extension>
    <extension
@@ -67,7 +67,7 @@
             allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               label="test">
+               label="%menu.label">
             <command
                   commandId="com.arcad.rental.ui.commandHelloWrd"
                   style="push">
