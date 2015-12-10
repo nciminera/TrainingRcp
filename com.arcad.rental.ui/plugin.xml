@@ -10,6 +10,7 @@
       <view
             category="com.arcad.rental.ui.category"
             class="com.arcad.rental.ui.views.RentalPropertyView"
+            icon="icons/Rentals.png"
             id="com.arcad.rental.ui.view.propertyRental"
             name="%view.name"
             restorable="true">
@@ -17,8 +18,17 @@
       <view
             category="com.arcad.rental.ui.category"
             class="com.arcad.rental.ui.views.AgencyView"
+            icon="icons/Agency.png"
             id="com.arcad.rental.ui.AngecyTreeView"
             name="%view.name.0"
+            restorable="true">
+      </view>
+      <view
+            category="com.arcad.rental.ui.category"
+            class="com.arcad.rental.ui.views.CutomerView"
+            icon="icons/Customers.png"
+            id="com.arcad.rental.ui.CutomerView"
+            name="Customer Propertie"
             restorable="true">
       </view>
    </extension>
@@ -26,6 +36,7 @@
          point="org.eclipse.ui.perspectives">
       <perspective
             class="com.arcad.rental.ui.perspectives.Rentalperspective"
+            icon="icons/Agency.png"
             id="com.arcad.rental.ui.perspective1"
             name="%perspective.name">
       </perspective>

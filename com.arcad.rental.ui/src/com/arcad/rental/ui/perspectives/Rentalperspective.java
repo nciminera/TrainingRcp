@@ -16,6 +16,7 @@ public class Rentalperspective implements IPerspectiveFactory {
 		addPerspectiveShortcuts(layout);
 		layout.addView("com.arcad.rental.ui.AngecyTreeView", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
 		layout.addView("com.arcad.rental.ui.view.propertyRental", IPageLayout.RIGHT, 0.5f, IPageLayout.ID_EDITOR_AREA);
+		layout.addView("com.arcad.rental.ui.CutomerView", IPageLayout.BOTTOM, 0.5f, "com.arcad.rental.ui.view.propertyRental");
 	}
 
 	/**
