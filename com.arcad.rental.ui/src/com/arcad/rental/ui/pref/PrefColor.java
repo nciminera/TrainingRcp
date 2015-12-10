@@ -6,8 +6,9 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import com.arcad.rental.ui.RentalUIActivator;
+import com.arcad.rental.ui.RentalUIConstant;
 
-public class PrefColor extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
+public class PrefColor extends FieldEditorPreferencePage implements IWorkbenchPreferencePage, RentalUIConstant{
 
 	@Override
 	public void init(IWorkbench workbench) {
@@ -17,9 +18,9 @@ public class PrefColor extends FieldEditorPreferencePage implements IWorkbenchPr
 
 	@Override
 	protected void createFieldEditors() {
-		addField(new ColorFieldEditor("PREF_CUSTOMER_COLOR", "Customer", getFieldEditorParent()));
-		addField(new ColorFieldEditor("PREF_RRENTAL_COLOR", "Rental", getFieldEditorParent()));
-		addField(new ColorFieldEditor("PREF_OBJECT_COLOR", "Object", getFieldEditorParent()));
+		addField(new ColorFieldEditor(PREF_CUSTOMER_COLOR, "Customer", getFieldEditorParent()));
+		addField(new ColorFieldEditor(PREF_RRENTAL_COLOR, "Rental", getFieldEditorParent()));
+		addField(new ColorFieldEditor(PREF_OBJECT_COLOR, "Object", getFieldEditorParent()));
 	}
 	
 	public PrefColor() {

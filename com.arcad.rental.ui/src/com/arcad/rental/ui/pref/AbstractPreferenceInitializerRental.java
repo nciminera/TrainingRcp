@@ -17,9 +17,9 @@ public class AbstractPreferenceInitializerRental extends AbstractPreferenceIniti
 	@Override
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store= RentalUIActivator.getDefault().getPreferenceStore();
-		store.setDefault(PREF_CUSTOMER_COLOR, StringConverter.asString(new RGB(10,20,255)));
-		store.setDefault(PREF_OBJECT_COLOR, StringConverter.asString(new RGB(10,230,30)));
-		store.setDefault(PREF_RRENTAL_COLOR, StringConverter.asString(new RGB(130,20,30)));
+		store.setDefault(PREF_CUSTOMER_COLOR, StringConverter.asString(new RGB(10,200,255)));
+		store.setDefault(PREF_OBJECT_COLOR, StringConverter.asString(new RGB(100,230,30)));
+		store.setDefault(PREF_RRENTAL_COLOR, StringConverter.asString(new RGB(255,0,120)));
 	}
 
 }
