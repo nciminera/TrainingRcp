@@ -4,13 +4,15 @@ import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
 public class Rentalperspective implements IPerspectiveFactory {
+	
+	public static final String ID="com.arcad.rental.ui.perspective1";
 
 	/**
 	 * Creates the initial layout for a page.
 	 */
 	public void createInitialLayout(IPageLayout layout) {
 		layout.setEditorAreaVisible(false);
-		String editorArea = layout.getEditorArea();
+//		String editorArea = layout.getEditorArea();
 		addFastViews(layout);
 		addViewShortcuts(layout);
 		addPerspectiveShortcuts(layout);
