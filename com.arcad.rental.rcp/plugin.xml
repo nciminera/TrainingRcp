@@ -16,7 +16,7 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="com.arcad.rental.rcp.application"
-            >
+            name="Rental">
          <property
                name="startupProgressRect"
                value="5,275,445,15">
@@ -26,7 +26,8 @@
                value="plugin_customization.ini">
          </property>
          <property
-               name="appName">
+               name="appName"
+               value="Rental">
          </property>
       </product>
    </extension>

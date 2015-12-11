@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.arcad.rental.feature_1.0.0.201512111447.jar" id="com.arcad.rental.feature" version="1.0.0.201512111447">
+      <category name="com.arcad.rental"/>
+   </feature>
+   <category-def name="com.arcad.rental" label="Rental"/>
+</site>
