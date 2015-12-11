@@ -1,10 +1,15 @@
 package com.arcad.rental.ui;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -14,6 +19,8 @@ import org.osgi.framework.FrameworkUtil;
  * The activator class controls the plug-in life cycle
  */
 public class RentalUIActivator extends AbstractUIPlugin implements RentalUIConstant{
+	
+	private Map<String, Palette> paletteManager = new HashMap<String, Palette>();
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "com.arcad.rental.ui"; //$NON-NLS-1$
@@ -38,14 +45,34 @@ public class RentalUIActivator extends AbstractUIPlugin implements RentalUIConst
 	}
 
 	private void readViewsExtensiond() {
-		IExtensionRegistry exReg = Platform.getExtensionRegistry();
-		for (IConfigurationElement e : exReg.getConfigurationElementsFor("org.eclipse.ui.views")) {
-			if (e.getName().equals("view")) {
-				System.out.println("Plugin "+e.getNamespaceIdentifier()+"         Vue "+e.getAttribute("name"));
-			}
+		IExtensionRegistry exReg = Platform.getExtensionRegistry();;
+		for (IConfigurationElement e : exReg.getConfigurationElementsFor("com.arcad.rental.ui.palette")) {
+			IColorProvider delegateICP;
+			try {
+				delegateICP = (IColorProvider) e.createExecutableExtension("paletteClass");
+				
+				Palette p = new Palette();
+				p.setName(e.getAttribute("name"));
+				p.setId(e.getAttribute("id"));
+				p.setColorProvider(delegateICP);
+				paletteManager.put(e.getAttribute("id"), p);			
+				
+				System.out.println("palette:  "+e.getAttribute("name"));
+			} catch (CoreException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}		
 			
 		}
 		
+	}
+
+	public Map<String, Palette> getPaletteManager() {
+		return paletteManager;
+	}
+
+	public void setPaletteManager(Map<String, Palette> paletteManager) {
+		this.paletteManager = paletteManager;
 	}
 
 	/*

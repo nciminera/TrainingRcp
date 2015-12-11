@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension-point id="palette" name="palette" schema="schema/palette.exsd"/>
    <extension
          point="org.eclipse.ui.views">
       <category
@@ -44,9 +45,15 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
+            category="com.arcad.rental.ui.paletteColorPage"
             class="com.arcad.rental.ui.pref.PrefColor"
             id="com.arcad.rental.ui.prefpage"
-            name="%page.name">
+            name="Default">
+      </page>
+      <page
+            class="com.arcad.rental.ui.pref.PaletteColorPage"
+            id="com.arcad.rental.ui.paletteColorPage"
+            name="Palette">
       </page>
    </extension>
    <extension
@@ -101,6 +108,19 @@
                style="push">
          </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="com.arcad.rental.ui.palette">
+      <Palette
+            id="com.arcad.rental.ui.PaletteDefault"
+            name="default"
+            paletteClass="com.arcad.rental.ui.palette.DefaultPaletteColorProvider">
+      </Palette>
+      <Palette
+            id="com.arcad.rental.ui.PaletteBlack"
+            name="Black"
+            paletteClass="com.arcad.rental.ui.palette.BlackProvider">
+      </Palette>
    </extension>
 
 </plugin>

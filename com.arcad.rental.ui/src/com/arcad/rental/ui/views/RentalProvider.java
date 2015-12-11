@@ -14,6 +14,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 
+import com.arcad.rental.ui.Palette;
 import com.arcad.rental.ui.RentalUIActivator;
 import com.arcad.rental.ui.RentalUIConstant;
 import com.opcoach.training.rental.Customer;
@@ -156,19 +157,10 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 	@Override
 	public Color getForeground(Object element) {
-		Display d = Display.getCurrent();
-		if (element instanceof RentalAgency) {
-			// return d.getSystemColor(SWT.COLOR_BLUE);			
-			return  getAColor(RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_RRENTAL_COLOR));
-			
-		} else if (element instanceof Customer) {
-			// return d.getSystemColor(SWT.COLOR_RED);		
-			return  getAColor(RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_CUSTOMER_COLOR));
-		} else if (element instanceof RentalObject) {
-			// return d.getSystemColor(SWT.COLOR_GREEN)			
-			return  getAColor(RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_OBJECT_COLOR));
-		} else if (element instanceof Node) {
-			return d.getSystemColor(SWT.COLOR_DARK_MAGENTA);
+		String paletteID= RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_PALETTE);
+		Palette p = RentalUIActivator.getDefault().getPaletteManager().get(paletteID);
+		if (p !=null) {
+			return p.getColorProvider().getForeground(element);
 		}
 		return null;
 	}
@@ -185,7 +177,11 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 	@Override
 	public Color getBackground(Object element) {
-		// TODO Auto-generated method stub
+		String paletteID= RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_PALETTE);
+		Palette p = RentalUIActivator.getDefault().getPaletteManager().get(paletteID);
+		if (p !=null) {
+			return p.getColorProvider().getBackground(element);
+		}
 		return null;
 	}
 }
