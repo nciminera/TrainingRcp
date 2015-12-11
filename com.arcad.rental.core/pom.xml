@@ -6,13 +6,13 @@
 
 	<parent>
 		<groupId>tychoRental</groupId>
-		<artifactId>com.opcoach.training.rental.parent</artifactId>
+		<artifactId>com.arcad.rental.parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../com.opcoach.training.rental.parent/pom.xml</relativePath>
+		<relativePath>../com.arcad.rental.parent/pom.xml</relativePath>
 	</parent>
 
 	<groupId>tychoRental</groupId>
-	<artifactId>com.opcoach.training.rental.core</artifactId>
+	<artifactId>com.arcad.rental.core</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 
